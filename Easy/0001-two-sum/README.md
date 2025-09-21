@@ -5,30 +5,32 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+- Use a hash map (unordered_map in C++) to store each number and its index as we iterate through the array.
+- For each number `nums[i]`, calculate the complement `target - nums[i]`.
+- If the complement exists in the hash map, return the pair of indices.
+- Otherwise, insert the current number into the hash map and continue.
+- This ensures we only traverse the list once.
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
+- **O(n)**, where n is the length of `nums`, since we do a single pass with constant-time lookups.
 
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+- **O(n)** for storing up to n elements in the hash map.
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: nums[0] + nums[1] == 9, we return [0, 1]
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
+- Each input has exactly one valid solution.
+- Cannot use the same element twice.
+- The order of indices in the output does not matter.
 
 ---
 *Author: Muhamed Shillua*
