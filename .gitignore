@@ -1,11 +1,30 @@
-# Python
+# Ignore Python cache and compiled files
 __pycache__/
-*.py[cod]
-*$py.class
-.venv/
+*.pyc
+*.pyo
+*.pyd
+*.pycache
+
+# Ignore virtual environments
 venv/
-ENV/
-.ipynb_checkpoints
+.env/
+.venv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Linux system files
+*.swp
+*~
+
+# Ignore VSCode settings (if you use it)
+.vscode/
+
+# Ignore backup files
+*.bak
 
 # C/C++
 *.o
