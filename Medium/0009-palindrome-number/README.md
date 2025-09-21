@@ -5,30 +5,36 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+Given an integer `x`, return `true` if `x` is a palindrome, and `false` otherwise.  
+A palindrome number reads the same backward as forward.
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+- If `x` is negative, it cannot be a palindrome.
+- If `x` ends with `0` but is not `0` itself, it cannot be a palindrome.
+- Reverse half of the number instead of the whole number to avoid overflow:
+  - Keep extracting the last digit (`x % 10`) and building a reversed half `y`.
+  - Stop when the reversed half is greater than or equal to the remaining `x`.
+- At the end, the number is a palindrome if:
+  - `x == y` (even number of digits), or
+  - `x == y / 10` (odd number of digits, ignoring the middle digit).
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
+- **O(log n)**, since we process roughly half of the digits.
 
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+- **O(1)**, using only a few variables.
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: x = 121
+Output: true
+Explanation: Reversing the digits gives 121, which is the same as the original number
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
+- Negative numbers are never palindromes.
+- Numbers ending with zero (except 0 itself) cannot be palindromes.
+- Efficient approach since only half the digits are reversed.
 
 ---
 *Author: Muhamed Shillua*
