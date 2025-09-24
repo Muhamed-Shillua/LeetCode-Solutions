@@ -5,30 +5,38 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+Write a function to find the longest common prefix string amongst an array of strings.  
+If there is no common prefix, return an empty string `""`.
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+1. Assume the first string is the prefix (`pre = strs[0]`).  
+2. For each string in the array:
+   - While the string does not start with `pre`, reduce `pre` by removing its last character.  
+   - If `pre` becomes empty → return `""`.  
+3. After processing all strings, `pre` will hold the longest common prefix.
+
+This works because we progressively shrink the prefix until it matches all strings.
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
+- **O(n * m)**  
+  - `n`: number of strings  
+  - `m`: average length of the strings  
+  Each mismatch reduces prefix length at most once per character.
 
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+- **O(1)** – only uses a few extra variables.
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: ["flower","flow","flight"]
+Output: "fl"
+Explanation: The longest common prefix among all strings is "fl".
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
+- If the list is empty → return `""`.
+- If only one string → return it directly.
+- No common prefix → return `""`.
 
 ---
 *Author: Muhamed Shillua*
