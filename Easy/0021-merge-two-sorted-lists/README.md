@@ -5,30 +5,40 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+You are given the heads of two sorted linked lists `list1` and `list2`.  
+Merge the two lists into a single sorted linked list and return the head of the merged list.  
+
+The merged list should be made by splicing together the nodes of the first two lists.
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+1. Create a **dummy node** to simplify edge cases.  
+2. Use a pointer `Current` starting at the dummy node.  
+3. While both lists are non-empty:
+   - Compare `list1->val` and `list2->val`.  
+   - Attach the smaller node to `Current->next`.  
+   - Move the pointer (`list1` or `list2`) forward.  
+   - Move `Current` forward.  
+4. When one list becomes empty, attach the remainder of the other list.  
+5. Return `Dummy->next` (skipping the dummy node).
+This guarantees that the merged list remains sorted without creating new nodes.
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
+- **O(n + m)** – where `n` and `m` are the lengths of the two lists.  
 
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+- **O(1)** – in-place merging, only using a few extra pointers.  
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+Explanation: Merge step by step keeps order.
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
-
+- One or both lists empty.  
+- Lists with duplicate values.  
+- Lists of unequal length.
+  
 ---
 *Author: Muhamed Shillua*
