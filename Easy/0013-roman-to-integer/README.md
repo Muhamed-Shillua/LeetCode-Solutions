@@ -5,30 +5,38 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+Given a Roman numeral string `s`, convert it into an integer.  
+Roman numerals are represented by seven symbols:
+I -> 1, V -> 5, X -> 10, L -> 50, C -> 100, D -> 500, M -> 1000
+
+Rules:
+  - Normally, symbols are added (e.g., `VI = 5 + 1 = 6`).
+  - If a smaller value precedes a larger one, it is subtracted (e.g., `IV = 5 - 1 = 4`).
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+1. Use an **unordered_map** to store Roman numeral characters and their integer values.
+2. Traverse the string from left to right:
+   - If the current value is smaller than the next value → subtract it.  
+   - Otherwise → add it.  
+3. The final result is the converted integer.
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
-
+- **O(n)** – where `n` is the length of the input string.
+  
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+- **O(1)** – the map size is constant (7 Roman symbols).
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: "MCMXCIV"
+Output: 1994
+Explanation: M (1000) + CM (900) + XC (90) + IV (4) = 1994
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
+- Smallest input: `"I"` → `1`
+- Handles subtractive notation correctly (`IV = 4`, `IX = 9`, etc.)
+- No invalid Roman numeral inputs are given.
 
 ---
 *Author: Muhamed Shillua*
