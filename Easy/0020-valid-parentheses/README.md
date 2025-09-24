@@ -5,30 +5,39 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['`, and `']'`, determine if the input string is valid.  
+A string is valid if:  
+1. Open brackets are closed by the same type of brackets.  
+2. Open brackets are closed in the correct order.  
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+1. Use a **stack** to keep track of opening brackets.  
+2. Traverse each character in the string:
+   - If it's an opening bracket → push it to the stack.  
+   - If it's a closing bracket → check if the stack is not empty and its top matches the corresponding opening bracket.  
+     - If not, return `false`.  
+     - If yes, pop the top.  
+3. At the end, if the stack is empty → return `true`, otherwise `false`.
+
+This ensures proper matching and correct ordering of brackets.
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
+- **O(n)** – each character is processed once.  
 
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+- **O(n)** – stack may hold all opening brackets in the worst case.  
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: s = "()[]{}"
+Output: true
+Explanation: Each bracket is properly matched.
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
+- Empty string → valid (returns `true`).  
+- Single character → always invalid.  
+- Must handle mixed nested cases like `"({[]})"`.  
 
 ---
 *Author: Muhamed Shillua*
