@@ -5,30 +5,34 @@
 - **Language:** C++
 
 ## Problem Description
-<Write a brief description of the problem in your own words.>
+Write a function to **delete a node** (except the tail) in a singly linked list, given **only access to that node**.  
+
+You are **not given access to the head of the list**.
 
 ## Approach
-<Explain your solution approach clearly:>
-- Mention any algorithms or data structures used.
-- Step-by-step explanation if necessary.
-- Highlight any tricky parts or optimizations.
+1. Copy the value from the **next node** into the current node.  
+2. Update the current node's `next` pointer to skip the next node:  
+   ```cpp
+   node->val = node->next->val;
+   node->next = node->next->next;
+This effectively "deletes" the node without needing the head pointer.
 
 ## Time Complexity
-<O notation explanation, e.g., O(n), O(n log n)>
+O(1) – only a few pointer operations.
 
 ## Space Complexity
-<O notation explanation, e.g., O(1), O(n)>
+O(1) – no extra memory used.
 
 ## Example
 ```
-Input: <example input>
-Output: <example output>
-Explanation: <brief explanation of the output>
+Input: linked list 4 -> 5 -> 1 -> 9, node = 5
+After calling deleteNode(node): linked list becomes 4 -> 1 -> 9
+
 ```
 
 ## Notes / Edge Cases
-- Any special cases or considerations.
-- Things to watch out for while implementing.
-
+- Cannot delete the tail node.
+- Only works if the node to delete is guaranteed not to be the last node.
+- The solution modifies the list in place.
 ---
 *Author: Muhamed Shillua*
